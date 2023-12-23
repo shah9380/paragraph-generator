@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Button from './assets/Button';
+import InputPart from './assets/Input';
+import Main from './assets/Main';
 
 function App() {
+  let[number,setNumber]=useState(2);
+  function callData(data){
+      setNumber(data);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App bg-emerald-300 min-h-screen" >
+      <div className='max-w-[1200px] mx-auto text-start leading-[2rem]'>
+          <h1 className='text-3xl py-4 text-center font-medium text-rose-900'>TIRED OF BORING LOREM IPSUM</h1>
+          <InputPart demoProp={callData}></InputPart>
+        <Main nums={number}></Main>
+      </div>
     </div>
   );
 }
